@@ -1,5 +1,3 @@
-console.log('JS file loaded');
-
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 
