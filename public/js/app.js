@@ -18,7 +18,7 @@ form.addEventListener('submit', (evt) => {
 				return (messageOne.textContent = data.error);
 			}
 			messageOne.textContent = data.location;
-			messageTwo.textContent = data.forecastData;
+			messageTwo.innerHTML = data.forecastData.replace(/\n/g, '<br />');
 		});
 	});
 });

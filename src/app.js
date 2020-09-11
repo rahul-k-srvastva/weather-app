@@ -55,12 +55,28 @@ app.get('/weather', (req, res) => {
 		if (error) {
 			return res.send({ error });
 		}
-		foreCast(longitude, latitude, [ 'weather_code', 'temp', 'precipitation' ], (error, forecastData) => {
-			if (error) {
-				return res.send({ error });
+		foreCast(
+			longitude,
+			latitude,
+			[
+				'weather_code',
+				'temp',
+				'precipitation',
+				'feels_like',
+				'humidity',
+				'wind_speed',
+				'wind_direction',
+				'visibility',
+				'sunrise',
+				'sunset'
+			],
+			(error, forecastData) => {
+				if (error) {
+					return res.send({ error });
+				}
+				res.send({ address: req.query.address, location, forecastData });
 			}
-			res.send({ address: req.query.address, location, forecastData });
-		});
+		);
 	});
 });
 

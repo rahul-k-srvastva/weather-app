@@ -23,7 +23,11 @@ const forecast = (lon, lat, requestData, callback) => {
 			callback(
 				undefined,
 				`The weather is ${body.weather_code.value}. It is currently ${body.temp
-					.value} degrees out. There is currently ${body.precipitation.value} precipitation`
+					.value} degrees out. There is currently ${body.precipitation
+					.value} precipitation.\nOther details about weather:\nFeels like: ${body.feels_like
+					.value}\nHumidity: ${body.humidity.value}\nWind Speed: ${body.wind_speed
+					.value}\nWind Direction: ${body.wind_direction.value}\nVisibility: ${body.visibility
+					.value}\nSunrise at: ${body.sunrise.value}\nSunset at: ${body.sunset.value}`
 			);
 		}
 	});
